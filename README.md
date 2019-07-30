@@ -42,5 +42,5 @@ Stop Container:
 
 ```shell
 # docker stop <container-id>
-$ docker stop b76befe471dc`
+$ docker stop b76befe471dc
 ```
