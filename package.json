@@ -1,0 +1,17 @@
+{
+  "name": "simple-nodejs-app",
+  "version": "1.0.0",
+  "description": "example docker workshop",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "keywords": [
+    "docker"
+  ],
+  "author": "Buddy Arifin",
+  "license": "MIT"
+}
