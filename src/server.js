@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express');
+const GracefulShutdownManager = require('@moebius/http-graceful-shutdown').GracefulShutdownManager;
 
 // Constants
 const PORT = 8080;
@@ -12,5 +13,14 @@ app.get('/', (req, res) => {
     res.send('Helloooww World\n')
 });
 
-app.listen(PORT, HOST);
+const server = app.listen(PORT, HOST);
+
 console.log(`Running on http://${HOST}:${PORT}`);
+
+const shutdownManager = new GracefulShutdownManager(server);
+
+process.on('SIGTERM', () => {
+  shutdownManager.terminate(() => {
+    console.log('Server is gracefully terminated');
+  });
+});
